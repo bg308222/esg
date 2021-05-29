@@ -1,10 +1,16 @@
 import React, { Fragment, useState } from "react";
-import { NAVBARS, Router } from "./type";
-import { MyButton } from "../../common/component/MyButton";
+import { NAVBARS } from "./type";
+import { MyButton } from "../../common/component/MyButton/MyButton";
 
-import fuban from "../../static/image/fubon-logo.svg";
-import menu from "../../static/image/menu-logo.svg";
-import cancel from "../../static/image/cancel-logo.svg";
+import fuban from "../../static/image/fubon_logo.svg";
+import menu from "../../static/image/menu_logo.svg";
+import cancel from "../../static/image/cancel_logo.svg";
+import {
+  getCurrentRoute,
+  Router,
+  switchRouter,
+} from "../../common/helper/router";
+import { useRef } from "react";
 
 export const Header: React.FC<{
   isMobile: boolean;
@@ -14,9 +20,25 @@ export const Header: React.FC<{
 }> = ({ isMobile, onNavbarClick, onCancelClick, onMyTreeClick }) => {
   const [currentNavbar, setCurrentNavbar] = useState(Router.home);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const timeout = useRef<NodeJS.Timeout>();
+
+  window.addEventListener("scroll", ({ currentTarget }) => {
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+    timeout.current = setTimeout(() => {
+      setCurrentNavbar(getCurrentRoute((currentTarget as Window).pageYOffset));
+    }, 50);
+  });
+
+  const handleNavbarClick = (key: Router) => {
+    onNavbarClick && onNavbarClick(currentNavbar);
+    setCurrentNavbar(key);
+    switchRouter(key);
+  };
 
   return (
-    <div className="header_container">
+    <div id="home" className="header_container">
       {isMobile ? (
         <Fragment>
           <img
@@ -41,8 +63,8 @@ export const Header: React.FC<{
                       key === currentNavbar ? " current" : ""
                     }`}
                     onClick={() => {
-                      onNavbarClick && onNavbarClick(currentNavbar);
-                      setCurrentNavbar(key);
+                      handleNavbarClick(key);
+                      setIsMenuOpen(false);
                     }}
                     key={key}
                   >
@@ -72,8 +94,7 @@ export const Header: React.FC<{
                     key === currentNavbar ? " current" : ""
                   }`}
                   onClick={() => {
-                    onNavbarClick && onNavbarClick(currentNavbar);
-                    setCurrentNavbar(key);
+                    handleNavbarClick(key);
                   }}
                   key={key}
                 >

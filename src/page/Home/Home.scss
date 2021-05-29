@@ -1,0 +1,18 @@
+.home_container {
+  .home_element {
+    position: relative;
+
+    .double_down_arrow {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translate(-50%);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

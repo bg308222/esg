@@ -1,9 +1,4 @@
-export enum Router {
-  home = "home",
-  origin = "origin",
-  introduction = "introduction",
-  cooperation = "cooperation",
-}
+import { Router } from "../../common/helper/router";
 
 export const NAVBARS = [
   { key: Router.home, value: "首頁" },

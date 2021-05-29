@@ -1,0 +1,92 @@
+.origin_container {
+  padding-top: 64px;
+  text-align: center;
+
+  .origin_description {
+    width: 90%;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  .origin_element_container {
+    width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 150px;
+
+    .origin_element {
+      text-align: left;
+      padding: 20px;
+      flex: 1;
+
+      .origin_learn_more {
+        margin-top: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .origin_element_container_mobile {
+    width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    .origin_element {
+      text-align: left;
+      padding: 20px;
+      flex: 1;
+
+      .origin_learn_more {
+        margin-top: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .bold_blue {
+    font-family: Noto Sans TC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+    color: #004f74;
+  }
+
+  .blue {
+    font-family: Noto Sans TC;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+    color: #004f74;
+  }
+
+  .normal {
+    font-family: Noto Sans TC;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .subtitle {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #6c757d;
+  }
+}
