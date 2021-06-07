@@ -15,6 +15,8 @@ const checkIsWindowMobile = () => {
 
 export const Layout: React.FC = () => {
   const [isMobile, setIsMobile] = useState(checkIsWindowMobile());
+  const [isPopUpShown, setIsPopUpShown] = useState(true);
+  const [popUpContent, setPopUpContent] = useState<JSX.Element>();
   const timeout = useRef<NodeJS.Timeout>();
 
   window.addEventListener("resize", () => {
@@ -28,12 +30,26 @@ export const Layout: React.FC = () => {
 
   return (
     <div className="layout_container">
-      <Header isMobile={isMobile} />
-      <Home isMobile={isMobile} />
-      <Origin isMobile={isMobile} />
-      <Introduction isMobile={isMobile} />
-      <Cooperation isMobile={isMobile} />
-      <Footer />
+      <div
+        className="pop_up"
+        style={{ visibility: isPopUpShown ? "visible" : "hidden" }}
+      >
+        {popUpContent && popUpContent}
+      </div>
+      <div className="main">
+        <Header isMobile={isMobile} />
+        <Home isMobile={isMobile} />
+        <Origin
+          isMobile={isMobile}
+          popUp={{ setIsPopUpShown, setPopUpContent }}
+        />
+        <Introduction isMobile={isMobile} />
+        <Cooperation
+          isMobile={isMobile}
+          popUp={{ setIsPopUpShown, setPopUpContent }}
+        />
+        <Footer />
+      </div>
       <div className="scroll_to_top">
         <img
           src={scroll_to_top}

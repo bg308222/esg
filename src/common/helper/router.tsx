@@ -6,10 +6,11 @@ export enum Router {
 }
 
 export const switchRouter = (target: Router) => {
+  const main = document.getElementsByClassName("main")[0];
   const element = document.getElementById(target);
   if (element) {
     if (element) {
-      window.scrollTo({ top: element.offsetTop });
+      main.scrollTo({ top: element.offsetTop });
     }
   }
 };
