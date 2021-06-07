@@ -4,6 +4,109 @@ html {
 body {
   margin: 0;
 }
+.noto_12 {
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+  color: #333333;
+}
+.noto_24 {
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+  color: #004f74;
+
+  &.bold {
+    font-weight: bold;
+  }
+}
+.noto_16 {
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  color: #343a40;
+}
+.mont_14 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #6c757d;
+
+  &.black {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 160%;
+    color: #343a40;
+  }
+}
+.mont_16 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  color: #343a40;
+}
+.mont_20 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #004f74;
+}
+.mont_24 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #ffffff;
+
+  &.green {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #004f74;
+  }
+}
+.mont_32 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 30px;
+  color: #ffffff;
+}
+.bai_24 {
+  font-family: Bai Jamjuree;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #004f74;
+}
+.bai_32 {
+  font-family: Bai Jamjuree;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 40px;
+  color: #004f74;
+}
 
 .layout_container {
   position: relative;
@@ -17,6 +120,11 @@ body {
   .main {
     height: 100vh;
     overflow-y: scroll;
+
+    .part_title {
+      margin-bottom: 60px;
+    }
+
     .header_container {
       position: relative;
       display: flex;

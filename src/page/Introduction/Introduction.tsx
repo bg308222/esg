@@ -6,10 +6,10 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
   return (
     <div id="introduction" className="introduction_container">
       <div>
-        <span className="subtitle">活動介紹</span>
+        <span className="mont_14">活動介紹</span>
       </div>
-      <div>
-        <span className="bold_blue">改變環境，從起步開始</span>
+      <div className="part_title">
+        <span className=" bai_32">改變環境，從起步開始</span>
       </div>
       <div
         className={`introduction_element_container${isMobile ? "_mobile" : ""}`}
@@ -19,10 +19,10 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         </div>
         <div className="introduction_element">
           <div style={{ marginTop: "10px" }}>
-            <span className="blue">用雙腳，感受大地的好</span>
+            <span className="bai_24">用雙腳，感受大地的好</span>
           </div>
           <div style={{ marginTop: "20px" }}>
-            <span className="normal">
+            <span className="mont_16">
               2020年起，富邦金控成為台灣唯一贊助國際品牌四大馬拉松的金融業者。
               2021年，富邦金控已在台深耕60周年，我們深愛台灣這片土地，期望能盡一己之力，回饋社會，追求「共好，共榮」。
               <br />
@@ -37,6 +37,7 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
           width: "100%",
+          margin: "50px 0",
         }}
       >
         {[
@@ -65,17 +66,17 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
                   alignItems: isMobile ? "center" : "flex-start",
                 }}
               >
-                <span style={{ marginBottom: "10px" }} className="white">
+                <span style={{ marginBottom: "10px" }} className="mont_24">
                   {info.title}
                 </span>
-                <span className="bold_white">{info.content}</span>
+                <span className="mont_32">{info.content}</span>
               </div>
             </div>
           );
         })}
       </div>
       <div style={{ marginTop: "60px" }}>
-        <span className="blue">現在，跟我們一起 RUN FOR GREEN！</span>
+        <span className="mont_24 green">現在，跟我們一起 RUN FOR GREEN！</span>
       </div>
       <div style={{ marginTop: "60px" }}>
         <img
@@ -87,18 +88,18 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
       <div
         style={{ marginTop: "60px", display: "flex", flexDirection: "column" }}
       >
-        <span className="normal">
+        <span className="mont_16">
           不論你是享受速度的跑步咖，還是熱愛走路的健走咖，你的每一步，都是改變未來的行動力！
         </span>
-        <span className="normal">
+        <span className="mont_16">
           註冊登入會員後，於富邦四大馬拉松中任選場次，總計完成
           40公里賽程，即可於線上認養一棵樹苗。
         </span>
-        <span className="normal">
+        <span className="mont_16">
           並選擇你所關注的環境議題和種植地點，讓你的行動力轉化為正向的力量！
         </span>
       </div>
-      <MyButton text="獲得樹苗" style={{ margin: "10px auto" }} />
+      <MyButton text="獲得樹苗" style={{ margin: "30px auto" }} />
       <div>
         <img style={{ width: "100%" }} src={temp} alt="temp" />
       </div>

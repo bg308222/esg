@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 60px;
 
     .origin_element {
       text-align: left;
@@ -52,41 +52,5 @@
         }
       }
     }
-  }
-
-  .bold_blue {
-    font-family: Noto Sans TC;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 35px;
-    text-align: center;
-    color: #004f74;
-  }
-
-  .blue {
-    font-family: Noto Sans TC;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 35px;
-    text-align: center;
-    color: #004f74;
-  }
-
-  .normal {
-    font-family: Noto Sans TC;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 30px;
-  }
-
-  .subtitle {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    color: #6c757d;
   }
 }
