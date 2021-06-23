@@ -157,26 +157,29 @@ body {
         left: 0;
         width: 100%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        background-color: rgba(52, 58, 64, 0.6);
         z-index: 1;
 
         .navbar_element_mobile {
-          margin: 15px 0;
+          padding: 15px 0;
           text-align: center;
-          font-family: Noto Sans;
+          font-family: Mulish;
           font-style: normal;
-          font-weight: bold;
+          font-weight: 600;
           font-size: 14px;
-          line-height: 19px;
-          color: #7c7c7c;
+          line-height: 18px;
+          color: white;
+          flex: 1;
           &.current {
-            color: #00a59b;
+            color: #30daa2;
+            border-bottom: 4px solid #30daa2;
           }
 
           &:hover {
             cursor: pointer;
-            color: #30daa2;
+            color: #00a59b;
           }
         }
       }

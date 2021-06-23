@@ -10,7 +10,7 @@ export const switchRouter = (target: Router) => {
   const element = document.getElementById(target);
   if (element) {
     if (element) {
-      main.scrollTo({ top: element.offsetTop });
+      main.scrollTo({ behavior: "smooth", top: element.offsetTop });
     }
   }
 };
