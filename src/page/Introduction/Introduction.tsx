@@ -8,7 +8,7 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
       <div>
         <span className="mont_14">活動介紹</span>
       </div>
-      <div className="part_title">
+      <div className="part_title" style={{ marginTop: "10px" }}>
         <span className=" bai_32">改變環境，從起步開始</span>
       </div>
       <div

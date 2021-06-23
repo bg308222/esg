@@ -1,5 +1,13 @@
 .learn_more {
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #00a59b;
 
   &:hover {
     cursor: pointer;

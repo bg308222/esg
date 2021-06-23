@@ -1,6 +1,6 @@
-import learn_more from "../../../static/image/learn_more.svg";
 import cancel_block from "../../../static/image/cancel_block.svg";
 import scroll_to_top from "../../../static/image/scroll_to_top.svg";
+import arrow_right from "../../../static/image/arrow_right.svg";
 import { ContentType, ILearnMoreButton, ILearnMoreContent } from "./type";
 import "./LearnMore.scss";
 
@@ -16,7 +16,12 @@ export const LearnMoreButton: React.FC<ILearnMoreButton> = ({
         onClick && onClick();
       }}
     >
-      <img src={learn_more} alt="learn_more" />
+      <span>了解更多</span>
+      <img
+        src={arrow_right}
+        alt="learn_more"
+        style={{ marginLeft: "10px", width: "13px" }}
+      />
     </div>
   );
 };

@@ -19,7 +19,7 @@ export const Cooperation: React.FC<{ isMobile: boolean; popUp: IPopUp }> = ({
       <div>
         <span className="mont_14">合作單位</span>
       </div>
-      <div className="part_title">
+      <div className="part_title" style={{ marginTop: "10px" }}>
         <span className=" bai_32">合作單位介紹</span>
       </div>
       <div

@@ -6,6 +6,20 @@ import { useMemo } from "react";
 import { Router, switchRouter } from "../../common/helper/router";
 import { MyButton } from "../../common/component/MyButton/MyButton";
 
+const buttonStyle: React.CSSProperties = {
+  background: "transparent",
+  border: "1px solid white",
+  position: "absolute",
+  width: "150px",
+  left: "19%",
+  top: "55%",
+  fontFamily: "Noto Sans TC",
+  fontStyle: "normal",
+  fontWeight: 500,
+  fontSize: "14px",
+  lineHeight: "18px",
+};
+
 export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
   const doubleDownArrow = useMemo(() => {
     return (
@@ -27,12 +41,9 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           <MyButton
             text="我的樹木"
             style={{
-              background: "transparent",
-              border: "1px solid white",
-              position: "absolute",
-              left: "50%",
-              top: "35%",
+              ...buttonStyle,
               transform: "translate(-50%)",
+              left: "50%",
             }}
           />
           <img style={{ width: "100%" }} src={home_mobile} alt="home" />
@@ -40,18 +51,7 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         </div>
       ) : (
         <div className="home_element">
-          <MyButton
-            text="我的樹木"
-            style={{
-              background: "transparent",
-              border: "1px solid white",
-              position: "absolute",
-              width: "10%",
-              left: "24%",
-              top: "55%",
-              transform: "translate(-50%)",
-            }}
-          />
+          <MyButton text="我的樹木" style={buttonStyle} />
           <img style={{ width: "100%" }} src={home} alt="home" />
           {doubleDownArrow}
         </div>
