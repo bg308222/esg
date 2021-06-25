@@ -53,8 +53,11 @@ export const Origin: React.FC<{ isMobile: boolean; popUp: IPopUp }> = ({
           />
         </div>
       </div>
-      <div className={`origin_element_container${isMobile ? "_mobile" : ""}`}>
-        <div className="origin_element" style={{ backgroundColor: "#FBFBFB" }}>
+      <div
+        style={{ backgroundColor: "#FBFBFB" }}
+        className={`origin_element_container${isMobile ? "_mobile" : ""}`}
+      >
+        <div className="origin_element">
           <div style={{ marginTop: "10px" }}>
             <span className="bai_24">減少溫室氣體的最佳隊友！</span>
           </div>

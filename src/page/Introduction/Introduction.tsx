@@ -99,7 +99,15 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           並選擇你所關注的環境議題和種植地點，讓你的行動力轉化為正向的力量！
         </span>
       </div>
-      <MyButton text="獲得樹苗" style={{ margin: "30px auto" }} />
+      <MyButton
+        text="獲得樹苗"
+        style={{
+          fontFamily: "Noto Sans TC",
+          fontWeight: 500,
+          width: "150px",
+          margin: "30px auto",
+        }}
+      />
       <div>
         <img style={{ width: "100%" }} src={temp} alt="temp" />
       </div>

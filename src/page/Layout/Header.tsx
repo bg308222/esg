@@ -42,7 +42,7 @@ export const Header: React.FC<{
   };
 
   return (
-    <div id="home" className="header_container">
+    <div className="header_container">
       {isMobile ? (
         <Fragment>
           <img
@@ -99,7 +99,7 @@ export const Header: React.FC<{
             onClick={() => {
               onMyTreeClick && onMyTreeClick();
             }}
-            style={{ width: "100px" }}
+            style={{ width: "110px" }}
           />
         </Fragment>
       )}

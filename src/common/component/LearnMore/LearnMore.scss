@@ -31,9 +31,11 @@
     }
 
     .cancel {
-      min-width: 33px;
-      max-width: 44px;
-      width: 5%;
+      width: 88px;
+      height: 88px;
+      // min-width: 33px;
+      // max-width: 44px;
+      // width: 5%;
     }
   }
 
@@ -45,7 +47,6 @@
     }
 
     & > .title {
-      text-align: center;
       color: #0093c1;
       font-family: Noto Sans TC;
       font-style: normal;
