@@ -17,7 +17,7 @@ export const Origin: React.FC<{ isMobile: boolean; popUp: IPopUp }> = ({
           marginTop: "-10px",
         }}
       >
-        <div>
+        <div style={{ padding: "0 5%" }}>
           <span className="noto_24 bold" style={{ fontWeight: 700 }}>
             森林，
           </span>

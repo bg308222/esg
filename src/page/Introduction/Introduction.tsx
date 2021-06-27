@@ -75,7 +75,7 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           );
         })}
       </div>
-      <div style={{ marginTop: "60px" }}>
+      <div style={{ marginTop: "60px", padding: "0 5%" }}>
         <span className="mont_24 green">現在，跟我們一起 RUN FOR GREEN！</span>
       </div>
       <div style={{ marginTop: "60px" }}>
@@ -86,7 +86,7 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         />
       </div>
       <div
-        style={{ marginTop: "60px", display: "flex", flexDirection: "column" }}
+        style={{ marginTop: "60px", display: "flex", flexDirection: "column", padding: "0 5%" }}
       >
         <span className="mont_16">
           不論你是享受速度的跑步咖，還是熱愛走路的健走咖，你的每一步，都是改變未來的行動力！
