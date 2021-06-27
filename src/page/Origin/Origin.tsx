@@ -10,7 +10,13 @@ export const Origin: React.FC<{ isMobile: boolean; popUp: IPopUp }> = ({
 }) => {
   return (
     <div id="origin" className="origin_container">
-      <div style={{ backgroundColor: "#FBFBFB", padding: "50px 0" }}>
+      <div
+        style={{
+          backgroundColor: "#FBFBFB",
+          padding: "70px 0",
+          marginTop: "-10px",
+        }}
+      >
         <div>
           <span className="noto_24 bold" style={{ fontWeight: 700 }}>
             森林，
