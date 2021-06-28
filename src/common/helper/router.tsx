@@ -1,4 +1,7 @@
+import { checkIsWindowMobile } from "../../page/Layout/Layout";
+
 export enum Router {
+  header = "header",
   home = "home",
   origin = "origin",
   introduction = "introduction",
@@ -7,10 +10,15 @@ export enum Router {
 
 export const switchRouter = (target: Router) => {
   const main = document.getElementsByClassName("main")[0];
-  const element = document.getElementById(target);
-  if (element) {
+  if (target === Router.header || target === Router.home) {
+    main.scrollTo({ behavior: "smooth", top: 0 });
+  } else {
+    const element = document.getElementById(target);
     if (element) {
-      main.scrollTo({ behavior: "smooth", top: element.offsetTop });
+      main.scrollTo({
+        behavior: "smooth",
+        top: element.offsetTop - 30 - (checkIsWindowMobile() ? 50 : 0),
+      });
     }
   }
 };
@@ -26,7 +34,7 @@ export const getCurrentRoute = (currentYOffset: number) => {
       const _p = { ...p };
       if (_p.isEnd) return _p;
       const { offsetTop } = document.getElementById(route) as HTMLElement;
-      if (currentYOffset < offsetTop) {
+      if (currentYOffset + 110 < offsetTop) {
         _p.isEnd = true;
       } else {
         _p.target = route;

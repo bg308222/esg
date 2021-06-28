@@ -9,13 +9,14 @@ import { Footer } from "../Footer/Footer";
 import scroll_to_top from "../../static/image/scroll_to_top.svg";
 import { Router, switchRouter } from "../../common/helper/router";
 
-const checkIsWindowMobile = () => {
+export const checkIsWindowMobile = () => {
   return window.innerWidth < 800;
 };
 
 export const Layout: React.FC = () => {
   const [isMobile, setIsMobile] = useState(checkIsWindowMobile());
   const [isPopUpShown, setIsPopUpShown] = useState(true);
+  const [isScrollToTopShown, setIsScrollToTopShown] = useState(false);
   const [popUpContent, setPopUpContent] = useState<JSX.Element>();
   const timeout = useRef<NodeJS.Timeout>();
 
@@ -37,7 +38,12 @@ export const Layout: React.FC = () => {
         {popUpContent && popUpContent}
       </div>
       <div className="main">
-        <Header isMobile={isMobile} />
+        <Header
+          isMobile={isMobile}
+          onScroll={(scrollTop) => {
+            setIsScrollToTopShown(scrollTop !== 0);
+          }}
+        />
         <Home isMobile={isMobile} />
         <Origin
           isMobile={isMobile}
@@ -50,12 +56,15 @@ export const Layout: React.FC = () => {
         />
         <Footer />
       </div>
-      <div className="scroll_to_top">
+      <div
+        className="scroll_to_top"
+        style={{ display: isScrollToTopShown ? undefined : "none" }}
+      >
         <img
           src={scroll_to_top}
           alt="scroll_to_top"
           onClick={() => {
-            switchRouter(Router.home);
+            switchRouter(Router.header);
           }}
         />
       </div>

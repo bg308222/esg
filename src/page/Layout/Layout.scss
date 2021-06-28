@@ -126,7 +126,10 @@ body {
     }
 
     .header_container {
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      background-color: white;
       display: flex;
       padding: 0 60px;
       height: 88px;
@@ -137,6 +140,12 @@ body {
         & {
           justify-content: space-between;
           padding: 0 0;
+        }
+      }
+
+      .fuban_logo {
+        &:hover {
+          cursor: pointer;
         }
       }
 

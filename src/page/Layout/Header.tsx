@@ -17,7 +17,8 @@ export const Header: React.FC<{
   onNavbarClick?: (router: Router) => void;
   onCancelClick?: () => void;
   onMyTreeClick?: () => void;
-}> = ({ isMobile, onNavbarClick, onCancelClick, onMyTreeClick }) => {
+  onScroll?: (scrollTop: number) => void;
+}> = ({ isMobile, onNavbarClick, onCancelClick, onMyTreeClick, onScroll }) => {
   const [currentNavbar, setCurrentNavbar] = useState(Router.home);
   const timeout = useRef<NodeJS.Timeout>();
 
@@ -28,12 +29,13 @@ export const Header: React.FC<{
         clearTimeout(timeout.current);
       }
       timeout.current = setTimeout(() => {
+        onScroll && onScroll((currentTarget as HTMLDivElement).scrollTop);
         setCurrentNavbar(
           getCurrentRoute((currentTarget as HTMLDivElement).scrollTop)
         );
       }, 50);
     });
-  }, []);
+  }, [onScroll]);
 
   const handleNavbarClick = (key: Router) => {
     onNavbarClick && onNavbarClick(currentNavbar);
@@ -42,13 +44,19 @@ export const Header: React.FC<{
   };
 
   return (
-    <div className="header_container">
+    <div id="header" className="header_container">
       {isMobile ? (
         <Fragment>
           <img
+            className="fuban_logo"
             style={{ width: "180px", marginLeft: "20px" }}
             src={fuban}
             alt="fuban"
+            onClick={() => {
+              window.open(
+                "https://www.fubon.com/financialholdings/home/index.html"
+              );
+            }}
           />
           <img
             className="navbar_logo"
@@ -76,7 +84,17 @@ export const Header: React.FC<{
         </Fragment>
       ) : (
         <Fragment>
-          <img style={{ width: "180px" }} src={fuban} alt="fuban" />
+          <img
+            className="fuban_logo"
+            style={{ width: "180px" }}
+            src={fuban}
+            alt="fuban"
+            onClick={() => {
+              window.open(
+                "https://www.fubon.com/financialholdings/home/index.html"
+              );
+            }}
+          />
           <div className="navbar_container">
             {NAVBARS.map(({ key, value }) => {
               return (
