@@ -33,7 +33,7 @@ export const Header: React.FC<{
         setCurrentNavbar(
           getCurrentRoute((currentTarget as HTMLDivElement).scrollTop)
         );
-      }, 50);
+      }, 200);
     });
   }, [onScroll]);
 

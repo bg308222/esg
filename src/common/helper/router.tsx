@@ -8,17 +8,42 @@ export enum Router {
   cooperation = "cooperation",
 }
 
+const scrollTo = async (top: number) => {
+  const element = document.getElementsByClassName("main")[0];
+  if (element.scrollTop > top) {
+    while (Math.round(element.scrollTop) !== Math.round(top)) {
+      await new Promise((res) => {
+        setTimeout(() => {
+          element.scrollTop -= Math.pow(element.scrollTop - top, 0.6);
+          res(1);
+        }, 10);
+      });
+      if (element.scrollTop < top) {
+        element.scrollTop = top;
+      }
+    }
+  } else if (element.scrollTop < top) {
+    while (Math.round(element.scrollTop) !== Math.round(top)) {
+      await new Promise((res) => {
+        setTimeout(() => {
+          element.scrollTop += Math.pow(top - element.scrollTop, 0.6);
+          res(1);
+        }, 10);
+      });
+      if (element.scrollTop > top) {
+        element.scrollTop = top;
+      }
+    }
+  }
+};
+
 export const switchRouter = (target: Router) => {
-  const main = document.getElementsByClassName("main")[0];
   if (target === Router.header || target === Router.home) {
-    main.scrollTo({ behavior: "smooth", top: 0 });
+    scrollTo(0);
   } else {
     const element = document.getElementById(target);
     if (element) {
-      main.scrollTo({
-        behavior: "smooth",
-        top: element.offsetTop - 30 - (checkIsWindowMobile() ? 50 : 0),
-      });
+      scrollTo(element.offsetTop - 30 - (checkIsWindowMobile() ? 50 : 0));
     }
   }
 };
