@@ -2,12 +2,11 @@ import "./Origin.scss";
 import origin_box from "../../static/image/origin_box.svg";
 import temp from "../../static/image/temp.svg";
 import { LearnMoreButton } from "../../common/component/LearnMore/LearnMore";
-import { IPopUp } from "../Layout/type";
 
-export const Origin: React.FC<{ isMobile: boolean; popUp: IPopUp }> = ({
-  isMobile,
-  popUp: { setIsPopUpShown, setPopUpContent },
-}) => {
+export const Origin: React.FC<{
+  isShown: boolean;
+  isMobile: boolean;
+}> = ({ isMobile, isShown }) => {
   return (
     <div id="origin" className="origin_container">
       <div

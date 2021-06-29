@@ -11,28 +11,32 @@ export enum Router {
 const scrollTo = async (top: number) => {
   const element = document.getElementsByClassName("main")[0];
   if (element.scrollTop > top) {
-    while (Math.round(element.scrollTop) !== Math.round(top)) {
+    // scroll to top
+    while (Math.round(element.scrollTop) > Math.round(top)) {
+      // console.log(element.scrollTop, top);
       await new Promise((res) => {
         setTimeout(() => {
-          element.scrollTop -= Math.pow(element.scrollTop - top, 0.6);
+          element.scrollTop -= Math.max(
+            Math.pow(element.scrollTop - top, 0.6),
+            10
+          );
           res(1);
         }, 10);
       });
-      if (element.scrollTop < top) {
-        element.scrollTop = top;
-      }
     }
   } else if (element.scrollTop < top) {
-    while (Math.round(element.scrollTop) !== Math.round(top)) {
+    // scroll to down
+    while (Math.round(element.scrollTop) < Math.round(top)) {
       await new Promise((res) => {
         setTimeout(() => {
-          element.scrollTop += Math.pow(top - element.scrollTop, 0.6);
+          element.scrollTop += Math.max(
+            Math.pow(top - element.scrollTop, 0.6),
+            10
+          );
+
           res(1);
         }, 10);
       });
-      if (element.scrollTop > top) {
-        element.scrollTop = top;
-      }
     }
   }
 };
@@ -43,7 +47,7 @@ export const switchRouter = (target: Router) => {
   } else {
     const element = document.getElementById(target);
     if (element) {
-      scrollTo(element.offsetTop - 30 - (checkIsWindowMobile() ? 50 : 0));
+      scrollTo(element.offsetTop - 40 - (checkIsWindowMobile() ? 50 : 0));
     }
   }
 };

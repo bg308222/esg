@@ -9,10 +9,11 @@ import {
 import { IPopUp } from "../Layout/type";
 import { ContentType } from "../../common/component/LearnMore/type";
 
-export const Cooperation: React.FC<{ isMobile: boolean; popUp: IPopUp }> = ({
-  isMobile,
-  popUp: { setIsPopUpShown, setPopUpContent },
-}) => {
+export const Cooperation: React.FC<{
+  isMobile: boolean;
+  popUp: IPopUp;
+  isShown: boolean;
+}> = ({ isMobile, isShown, popUp: { setIsPopUpShown, setPopUpContent } }) => {
   const [cooperations] = useState<ICooperation[]>(fakeCooperations);
   return (
     <div id="cooperation" className="cooperation_container">

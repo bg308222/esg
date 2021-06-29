@@ -114,6 +114,16 @@ body {
     z-index: 2;
   }
 
+  .animation {
+    transition: opacity;
+    transition-duration: 0.5s;
+    opacity: 0;
+
+    &.isShown {
+      opacity: 1;
+    }
+  }
+
   .main {
     height: 100vh;
     overflow-y: scroll;
