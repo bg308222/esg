@@ -14,11 +14,12 @@ import { useEffect } from "react";
 
 export const Header: React.FC<{
   isMobile: boolean;
+  isPopUpShown: boolean;
   onNavbarClick?: (router: Router) => void;
   onCancelClick?: () => void;
   onMyTreeClick?: () => void;
   onScroll?: (scrollTop: number) => void;
-}> = ({ isMobile, onNavbarClick, onCancelClick, onMyTreeClick, onScroll }) => {
+}> = ({ isMobile, onNavbarClick, onCancelClick, onMyTreeClick, onScroll, isPopUpShown }) => {
   const [currentNavbar, setCurrentNavbar] = useState(Router.home);
   const timeout = useRef<NodeJS.Timeout>();
 
@@ -44,7 +45,7 @@ export const Header: React.FC<{
   };
 
   return (
-    <div id="header" className="header_container">
+    <div id="header" className="header_container" style={{display: isPopUpShown ? "none" : undefined}}>
       {isMobile ? (
         <Fragment>
           <img

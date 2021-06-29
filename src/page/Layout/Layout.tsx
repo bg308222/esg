@@ -15,7 +15,7 @@ export const checkIsWindowMobile = () => {
 
 export const Layout: React.FC = () => {
   const [isMobile, setIsMobile] = useState(checkIsWindowMobile());
-  const [isPopUpShown, setIsPopUpShown] = useState(true);
+  const [isPopUpShown, setIsPopUpShown] = useState(false);
   const [isScrollToTopShown, setIsScrollToTopShown] = useState(false);
   const [popUpContent, setPopUpContent] = useState<JSX.Element>();
   const [isOriginShown, setIsOriginShown] = useState(false);
@@ -43,6 +43,7 @@ export const Layout: React.FC = () => {
       <div className="main">
         <Header
           isMobile={isMobile}
+          isPopUpShown={isPopUpShown}
           onScroll={(scrollTop) => {
             setIsScrollToTopShown(scrollTop !== 0);
 
