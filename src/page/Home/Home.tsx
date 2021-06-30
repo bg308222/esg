@@ -12,20 +12,9 @@ import { Router, switchRouter } from "../../common/helper/router";
 import { MyButton } from "../../common/component/MyButton/MyButton";
 import { useEffect } from "react";
 import { useState } from "react";
+import { getAnimationStyle } from "../../common/helper/animation";
 
-const getAnimation = (sequence: number, isFirstRender?: boolean) => {
-  const perUnit = 0.5;
-  return {
-    transitionProperty: "opacity",
-    transitionDuration: perUnit + "s",
-    transitionDelay: sequence * perUnit + "s",
-    opacity: isFirstRender ? 0 : 1,
-  };
-};
-
-const buttonStyle: (isFirstRender?: boolean) => React.CSSProperties = (
-  isFirstRender
-) => ({
+const buttonStyle: () => React.CSSProperties = () => ({
   background: "transparent",
   border: "1px solid white",
   position: "absolute",
@@ -37,7 +26,6 @@ const buttonStyle: (isFirstRender?: boolean) => React.CSSProperties = (
   fontWeight: 500,
   fontSize: "14px",
   lineHeight: "18px",
-  ...getAnimation(2, isFirstRender),
 });
 
 export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
@@ -46,7 +34,9 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
     return (
       <img
         style={{
-          ...getAnimation(3, isFirstRender),
+          ...getAnimationStyle(!isFirstRender, 3, "down", {
+            transform: "translate(-50%)",
+          }),
         }}
         className="double_down_arrow"
         src={double_down_arrow}
@@ -69,7 +59,7 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           <img
             style={{
               width: "100%",
-              ...getAnimation(1, isFirstRender),
+              ...getAnimationStyle(!isFirstRender, 1),
             }}
             src={home_background_mobile}
             alt="home_background_mobile"
@@ -78,10 +68,11 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
             style={{
               position: "absolute",
               left: "50%",
-              transform: "translate(-50%)",
               top: "70px",
               width: "60%",
-              ...getAnimation(2, isFirstRender),
+              ...getAnimationStyle(!isFirstRender, 2, "left", {
+                transform: "translate(-50%)",
+              }),
             }}
             src={home_text_mobile}
             alt="home_text_mobile"
@@ -89,11 +80,13 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           <MyButton
             text="我的樹木"
             style={{
-              ...buttonStyle(isFirstRender),
-              transform: "translate(-50%)",
+              ...buttonStyle(),
               top: "45%",
               left: "50%",
               zIndex: 3,
+              ...getAnimationStyle(!isFirstRender, 2, "left", {
+                transform: "translate(-50%)",
+              }),
             }}
           />
           <img
@@ -102,7 +95,7 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
               left: "7%",
               top: "40%",
               width: "96%",
-              ...getAnimation(3, isFirstRender),
+              ...getAnimationStyle(!isFirstRender, 3, "down"),
             }}
             src={home_people_mobile}
             alt="home_people_mobile"
@@ -112,7 +105,7 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
       ) : (
         <div className="home_element">
           <img
-            style={{ width: "100%", ...getAnimation(1, isFirstRender) }}
+            style={{ width: "100%", ...getAnimationStyle(!isFirstRender, 1) }}
             src={home_background}
             alt="home_background"
           />
@@ -122,7 +115,7 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
               left: "19%",
               top: "35%",
               width: "30%",
-              ...getAnimation(2, isFirstRender),
+              ...getAnimationStyle(!isFirstRender, 2, "left"),
             }}
             src={home_text}
             alt="home_text"
@@ -130,7 +123,8 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           <MyButton
             text="我的樹木"
             style={{
-              ...buttonStyle(isFirstRender),
+              ...buttonStyle(),
+              ...getAnimationStyle(!isFirstRender, 2, "left"),
             }}
           />
           <img
@@ -139,7 +133,7 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
               right: "10%",
               top: "10%",
               width: "37%",
-              ...getAnimation(3, isFirstRender),
+              ...getAnimationStyle(!isFirstRender, 3, "down"),
             }}
             src={home_people}
             alt="home_people"

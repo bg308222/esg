@@ -8,6 +8,7 @@ import { Cooperation } from "../Cooperation/Cooperation";
 import { Footer } from "../Footer/Footer";
 import scroll_to_top from "../../static/image/scroll_to_top.svg";
 import { Router, switchRouter } from "../../common/helper/router";
+import { getAnimationStyle } from "../../common/helper/animation";
 
 export const checkIsWindowMobile = () => {
   return window.innerWidth < 800;
@@ -54,7 +55,7 @@ export const Layout: React.FC = () => {
               ).split(" ");
               if (
                 animationElement.offsetTop - scrollTop <
-                window.innerHeight - 250
+                window.innerHeight - 150
               ) {
                 if (!originClassList.includes("isShown"))
                   originClassList.push("isShown");
@@ -78,7 +79,7 @@ export const Layout: React.FC = () => {
       </div>
       <div
         className="scroll_to_top"
-        style={{ display: isScrollToTopShown ? undefined : "none" }}
+        style={getAnimationStyle(isScrollToTopShown)}
       >
         <img
           src={scroll_to_top}

@@ -30,6 +30,7 @@ export const MyButton: React.FC<{
       }}
       style={{
         ...style,
+        zIndex: 5,
         color: isHover
           ? hoverButtonStyle
             ? hoverButtonStyle.color

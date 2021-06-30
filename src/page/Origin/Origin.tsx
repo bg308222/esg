@@ -34,10 +34,10 @@ export const Origin: React.FC<{
           isMobile ? "_mobile" : ""
         }`}
       >
-        <div className="animation origin_element">
+        <div className="origin_element">
           <img style={{ width: "100%" }} src={temp} alt="temp" />
         </div>
-        <div className="animation origin_element">
+        <div className="origin_element">
           <div>
             <span className="mont_14">實現正向的力量！</span>
           </div>
@@ -67,7 +67,7 @@ export const Origin: React.FC<{
           isMobile ? "_mobile" : ""
         }`}
       >
-        <div className="animation origin_element">
+        <div className="origin_element">
           <div style={{ marginTop: "10px" }}>
             <span className="bai_24">減少溫室氣體的最佳隊友！</span>
           </div>
@@ -120,7 +120,7 @@ export const Origin: React.FC<{
             })}
           </div>
         </div>
-        <div className="animation origin_element">
+        <div className="origin_element">
           <img style={{ width: "100%" }} src={temp} alt="temp" />
         </div>
       </div>
