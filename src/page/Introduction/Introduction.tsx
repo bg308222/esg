@@ -35,7 +35,7 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         </div>
       </div>
       <div
-        className="animation"
+        className="animation_left"
         style={{
           display: "flex",
           flexDirection: isMobile ? "column" : "row",

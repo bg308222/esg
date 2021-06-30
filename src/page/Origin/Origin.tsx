@@ -13,7 +13,6 @@ export const Origin: React.FC<{
         style={{
           backgroundColor: "#FBFBFB",
           padding: "70px 0",
-          marginTop: "-10px",
         }}
       >
         <div style={{ padding: "0 5%" }}>
@@ -30,7 +29,11 @@ export const Origin: React.FC<{
           </span>
         </div>
       </div>
-      <div className={`origin_element_container${isMobile ? "_mobile" : ""}`}>
+      <div
+        className={`animation_left origin_element_container${
+          isMobile ? "_mobile" : ""
+        }`}
+      >
         <div className="animation origin_element">
           <img style={{ width: "100%" }} src={temp} alt="temp" />
         </div>
@@ -60,7 +63,9 @@ export const Origin: React.FC<{
       </div>
       <div
         style={{ backgroundColor: "#FBFBFB" }}
-        className={`origin_element_container${isMobile ? "_mobile" : ""}`}
+        className={`animation_right origin_element_container${
+          isMobile ? "_mobile" : ""
+        }`}
       >
         <div className="animation origin_element">
           <div style={{ marginTop: "10px" }}>

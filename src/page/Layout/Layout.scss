@@ -124,6 +124,30 @@ body {
     }
   }
 
+  .animation_left {
+    transition: opacity, transform;
+    transition-duration: 1s;
+    opacity: 0;
+    transform: translate(-100%);
+
+    &.isShown {
+      opacity: 1;
+      transform: translate(0%);
+    }
+  }
+
+  .animation_right {
+    transition: opacity, transform;
+    transition-duration: 1s;
+    opacity: 0;
+    transform: translate(100%);
+
+    &.isShown {
+      opacity: 1;
+      transform: translate(0%);
+    }
+  }
+
   .main {
     height: 100vh;
     overflow-y: scroll;

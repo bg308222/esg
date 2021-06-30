@@ -27,7 +27,10 @@ export const Cooperation: React.FC<{
       >
         {cooperations.map((cooperation) => {
           return (
-            <div className="animation cooperation_element" key={Math.random()}>
+            <div
+              className="animation_left cooperation_element"
+              key={Math.random()}
+            >
               <img src={temp} alt="temp" />
               <span className="text mont_20">{cooperation.title}</span>
               <span className="text mont_14 black">{cooperation.content}</span>

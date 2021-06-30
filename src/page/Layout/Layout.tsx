@@ -44,7 +44,9 @@ export const Layout: React.FC = () => {
           onScroll={(scrollTop) => {
             setIsScrollToTopShown(scrollTop !== 0);
             const animationElements = Array.from(
-              document.querySelectorAll<HTMLElement>(".animation")
+              document.querySelectorAll<HTMLElement>(
+                ".animation,.animation_left,.animation_right"
+              )
             );
             animationElements.forEach((animationElement) => {
               let originClassList = (
