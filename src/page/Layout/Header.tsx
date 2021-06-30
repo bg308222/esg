@@ -19,7 +19,14 @@ export const Header: React.FC<{
   onCancelClick?: () => void;
   onMyTreeClick?: () => void;
   onScroll?: (scrollTop: number) => void;
-}> = ({ isMobile, onNavbarClick, onCancelClick, onMyTreeClick, onScroll, isPopUpShown }) => {
+}> = ({
+  isMobile,
+  onNavbarClick,
+  onCancelClick,
+  onMyTreeClick,
+  onScroll,
+  isPopUpShown,
+}) => {
   const [currentNavbar, setCurrentNavbar] = useState(Router.home);
   const timeout = useRef<NodeJS.Timeout>();
 
@@ -34,7 +41,7 @@ export const Header: React.FC<{
         setCurrentNavbar(
           getCurrentRoute((currentTarget as HTMLDivElement).scrollTop)
         );
-      }, 200);
+      }, 10);
     });
   }, [onScroll]);
 
@@ -45,7 +52,11 @@ export const Header: React.FC<{
   };
 
   return (
-    <div id="header" className="header_container" style={{display: isPopUpShown ? "none" : undefined}}>
+    <div
+      id="header"
+      className="header_container"
+      style={{ display: isPopUpShown ? "none" : undefined }}
+    >
       {isMobile ? (
         <Fragment>
           <img

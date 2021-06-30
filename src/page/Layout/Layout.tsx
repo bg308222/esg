@@ -18,9 +18,6 @@ export const Layout: React.FC = () => {
   const [isPopUpShown, setIsPopUpShown] = useState(false);
   const [isScrollToTopShown, setIsScrollToTopShown] = useState(false);
   const [popUpContent, setPopUpContent] = useState<JSX.Element>();
-  const [isOriginShown, setIsOriginShown] = useState(false);
-  const [isIntroductionShown, setIsIntroductionShown] = useState(false);
-  const [isCooperationShown, setIsCooperationShown] = useState(false);
   const timeout = useRef<NodeJS.Timeout>();
 
   window.addEventListener("resize", () => {
@@ -46,40 +43,35 @@ export const Layout: React.FC = () => {
           isPopUpShown={isPopUpShown}
           onScroll={(scrollTop) => {
             setIsScrollToTopShown(scrollTop !== 0);
-
-            const origin = document.getElementById("origin") as HTMLDivElement;
-            const introduction = document.getElementById(
-              "introduction"
-            ) as HTMLDivElement;
-            const cooperation = document.getElementById(
-              "cooperation"
-            ) as HTMLDivElement;
-
-            if (origin.offsetTop - scrollTop < window.innerHeight) {
-              setIsOriginShown(true);
-            }
-            if (introduction.offsetTop - scrollTop < window.innerHeight) {
-              setIsIntroductionShown(true);
-            }
-            if (cooperation.offsetTop - scrollTop < window.innerHeight) {
-              setIsCooperationShown(true);
-            }
+            const animationElements = Array.from(
+              document.querySelectorAll<HTMLElement>(".animation")
+            );
+            animationElements.forEach((animationElement) => {
+              let originClassList = (
+                animationElement.getAttribute("class") as string
+              ).split(" ");
+              if (
+                animationElement.offsetTop - scrollTop <
+                window.innerHeight - 250
+              ) {
+                if (!originClassList.includes("isShown"))
+                  originClassList.push("isShown");
+              } else {
+                originClassList = originClassList.filter((str) => {
+                  return str !== "isShown";
+                });
+              }
+              animationElement.setAttribute("class", originClassList.join(" "));
+            });
           }}
         />
         <Home isMobile={isMobile} />
-        <div className={`animation ${isOriginShown ? "isShown" : ""}`}>
-          <Origin isMobile={isMobile} isShown={isOriginShown} />
-        </div>
-        <div className={`animation ${isIntroductionShown ? "isShown" : ""}`}>
-          <Introduction isMobile={isMobile} isShown={isIntroductionShown} />
-        </div>
-        <div className={`animation ${isCooperationShown ? "isShown" : ""}`}>
-          <Cooperation
-            isMobile={isMobile}
-            isShown={isCooperationShown}
-            popUp={{ setIsPopUpShown, setPopUpContent }}
-          />
-        </div>
+        <Origin isMobile={isMobile} />
+        <Introduction isMobile={isMobile} />
+        <Cooperation
+          isMobile={isMobile}
+          popUp={{ setIsPopUpShown, setPopUpContent }}
+        />
         <Footer />
       </div>
       <div

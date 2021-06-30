@@ -12,23 +12,22 @@ import { ContentType } from "../../common/component/LearnMore/type";
 export const Cooperation: React.FC<{
   isMobile: boolean;
   popUp: IPopUp;
-  isShown: boolean;
-}> = ({ isMobile, isShown, popUp: { setIsPopUpShown, setPopUpContent } }) => {
+}> = ({ isMobile, popUp: { setIsPopUpShown, setPopUpContent } }) => {
   const [cooperations] = useState<ICooperation[]>(fakeCooperations);
   return (
     <div id="cooperation" className="cooperation_container">
-      <div>
+      <div className="animation">
         <span className="mont_14">合作單位</span>
       </div>
-      <div className="part_title" style={{ marginTop: "10px" }}>
+      <div className="animation part_title" style={{ marginTop: "10px" }}>
         <span className=" bai_32">合作單位介紹</span>
       </div>
       <div
-        className={`cooperation_element_container${isMobile ? "_mobile" : ""}`}
+        className={` cooperation_element_container${isMobile ? "_mobile" : ""}`}
       >
         {cooperations.map((cooperation) => {
           return (
-            <div className="cooperation_element" key={Math.random()}>
+            <div className="animation cooperation_element" key={Math.random()}>
               <img src={temp} alt="temp" />
               <span className="text mont_20">{cooperation.title}</span>
               <span className="text mont_14 black">{cooperation.content}</span>

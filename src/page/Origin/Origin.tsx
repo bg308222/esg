@@ -4,12 +4,12 @@ import temp from "../../static/image/temp.svg";
 import { LearnMoreButton } from "../../common/component/LearnMore/LearnMore";
 
 export const Origin: React.FC<{
-  isShown: boolean;
   isMobile: boolean;
-}> = ({ isMobile, isShown }) => {
+}> = ({ isMobile }) => {
   return (
     <div id="origin" className="origin_container">
       <div
+        className="animation"
         style={{
           backgroundColor: "#FBFBFB",
           padding: "70px 0",
@@ -31,10 +31,10 @@ export const Origin: React.FC<{
         </div>
       </div>
       <div className={`origin_element_container${isMobile ? "_mobile" : ""}`}>
-        <div className="origin_element">
+        <div className="animation origin_element">
           <img style={{ width: "100%" }} src={temp} alt="temp" />
         </div>
-        <div className="origin_element">
+        <div className="animation origin_element">
           <div>
             <span className="mont_14">實現正向的力量！</span>
           </div>
@@ -62,7 +62,7 @@ export const Origin: React.FC<{
         style={{ backgroundColor: "#FBFBFB" }}
         className={`origin_element_container${isMobile ? "_mobile" : ""}`}
       >
-        <div className="origin_element">
+        <div className="animation origin_element">
           <div style={{ marginTop: "10px" }}>
             <span className="bai_24">減少溫室氣體的最佳隊友！</span>
           </div>
@@ -115,7 +115,7 @@ export const Origin: React.FC<{
             })}
           </div>
         </div>
-        <div className="origin_element">
+        <div className="animation origin_element">
           <img style={{ width: "100%" }} src={temp} alt="temp" />
         </div>
       </div>
