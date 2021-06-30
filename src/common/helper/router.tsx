@@ -24,12 +24,12 @@ const scrollTo = async (top: number, id: string) => {
         setTimeout(() => {
           element.scrollTop -= Math.max(
             Math.pow(element.scrollTop - top, 0.6),
-            10
+            5
           );
           res(1);
         }, 10);
       });
-      if (Math.abs(element.scrollTop - top) < 20) break;
+      if (Math.abs(element.scrollTop - top) < 1) break;
       if (scrollQueue.length !== 1) {
         if (scrollQueue.indexOf(id) !== scrollQueue.length - 1) {
           return;
@@ -46,12 +46,12 @@ const scrollTo = async (top: number, id: string) => {
         setTimeout(() => {
           element.scrollTop += Math.max(
             Math.pow(top - element.scrollTop, 0.6),
-            10
+            5
           );
           res(1);
         }, 10);
       });
-      if (Math.abs(element.scrollTop - top) < 20) break;
+      if (Math.abs(element.scrollTop - top) < 1) break;
       if (scrollQueue.length !== 1) {
         if (scrollQueue.indexOf(id) !== scrollQueue.length - 1) {
           return;
