@@ -8,12 +8,18 @@ export enum Router {
   cooperation = "cooperation",
 }
 
-const scrollTo = async (top: number) => {
+let scrollQueue: string[] = [];
+
+export const isScrolling = () => {
+  return scrollQueue.length !== 0;
+};
+
+const scrollTo = async (top: number, id: string) => {
   const element = document.getElementsByClassName("main")[0];
   if (element.scrollTop > top) {
     // scroll to top
-    while (Math.round(element.scrollTop) > Math.round(top)) {
-      // console.log(element.scrollTop, top);
+    while (element.scrollTop > top) {
+      // console.log(element.scrollTop, top, "1", scrollQueue);
       await new Promise((res) => {
         setTimeout(() => {
           element.scrollTop -= Math.max(
@@ -23,31 +29,52 @@ const scrollTo = async (top: number) => {
           res(1);
         }, 10);
       });
+      if (Math.abs(element.scrollTop - top) < 20) break;
+      if (scrollQueue.length !== 1) {
+        if (scrollQueue.indexOf(id) !== scrollQueue.length - 1) {
+          return;
+        }
+      }
     }
-  } else if (element.scrollTop < top) {
+    scrollQueue = [];
+    element.scrollTop = top;
+  } else {
     // scroll to down
-    while (Math.round(element.scrollTop) < Math.round(top)) {
+    while (element.scrollTop < top) {
+      // console.log(element.scrollTop, top, "2", scrollQueue);
       await new Promise((res) => {
         setTimeout(() => {
           element.scrollTop += Math.max(
             Math.pow(top - element.scrollTop, 0.6),
             10
           );
-
           res(1);
         }, 10);
       });
+      if (Math.abs(element.scrollTop - top) < 20) break;
+      if (scrollQueue.length !== 1) {
+        if (scrollQueue.indexOf(id) !== scrollQueue.length - 1) {
+          return;
+        }
+      }
     }
+    scrollQueue = [];
+    element.scrollTop = top;
   }
 };
 
-export const switchRouter = (target: Router) => {
+export const switchRouter = async (target: Router) => {
+  const id = Math.random().toString();
+  scrollQueue.push(id);
   if (target === Router.header || target === Router.home) {
-    scrollTo(0);
+    await scrollTo(0, id);
   } else {
     const element = document.getElementById(target);
     if (element) {
-      scrollTo(element.offsetTop - 40 - (checkIsWindowMobile() ? 50 : 0));
+      await scrollTo(
+        element.offsetTop - 40 - (checkIsWindowMobile() ? 50 : 0),
+        id
+      );
     }
   }
 };

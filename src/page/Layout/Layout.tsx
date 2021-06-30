@@ -84,8 +84,8 @@ export const Layout: React.FC = () => {
         <img
           src={scroll_to_top}
           alt="scroll_to_top"
-          onClick={() => {
-            switchRouter(Router.header);
+          onClick={async () => {
+            await switchRouter(Router.header);
           }}
         />
       </div>

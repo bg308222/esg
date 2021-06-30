@@ -41,8 +41,8 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         className="double_down_arrow"
         src={double_down_arrow}
         alt="double_down_arrow"
-        onClick={() => {
-          switchRouter(Router.origin);
+        onClick={async () => {
+          await switchRouter(Router.origin);
         }}
       />
     );

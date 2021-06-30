@@ -6,6 +6,7 @@ import fuban from "../../static/image/fubon_logo.svg";
 import my_tree from "../../static/image/my_tree.svg";
 import {
   getCurrentRoute,
+  isScrolling,
   Router,
   switchRouter,
 } from "../../common/helper/router";
@@ -28,27 +29,23 @@ export const Header: React.FC<{
   isPopUpShown,
 }) => {
   const [currentNavbar, setCurrentNavbar] = useState(Router.home);
-  const timeout = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     const main = document.getElementsByClassName("main")[0];
     main.addEventListener("scroll", ({ currentTarget }) => {
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-      timeout.current = setTimeout(() => {
+      if (!isScrolling()) {
         onScroll && onScroll((currentTarget as HTMLDivElement).scrollTop);
         setCurrentNavbar(
           getCurrentRoute((currentTarget as HTMLDivElement).scrollTop)
         );
-      }, 10);
+      }
     });
   }, [onScroll]);
 
-  const handleNavbarClick = (key: Router) => {
+  const handleNavbarClick = async (key: Router) => {
     onNavbarClick && onNavbarClick(currentNavbar);
     setCurrentNavbar(key);
-    switchRouter(key);
+    await switchRouter(key);
   };
 
   return (
@@ -77,6 +74,36 @@ export const Header: React.FC<{
             onClick={() => {}}
           />
           <div className="navbar_container_mobile">
+            <div
+              style={{
+                position: "absolute",
+                backgroundColor: "#30daa2",
+                transitionProperty: "left",
+                transitionDuration: "0.5s",
+                left: (() => {
+                  switch (currentNavbar) {
+                    case Router.home: {
+                      return "0%";
+                    }
+                    case Router.origin: {
+                      return "25%";
+                    }
+                    case Router.introduction: {
+                      return "50%";
+                    }
+                    case Router.cooperation: {
+                      return "75%";
+                    }
+                    default: {
+                      return "0%";
+                    }
+                  }
+                })(),
+                bottom: 0,
+                width: "25%",
+                height: "4px",
+              }}
+            />
             {NAVBARS.map(({ key, value }) => {
               return (
                 <div
