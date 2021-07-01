@@ -10,7 +10,6 @@ import {
   Router,
   switchRouter,
 } from "../../common/helper/router";
-import { useRef } from "react";
 import { useEffect } from "react";
 
 export const Header: React.FC<{

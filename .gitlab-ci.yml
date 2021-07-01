@@ -1,0 +1,11 @@
+stages:
+  - build
+
+build-job:
+  stage: build
+  only:
+    - master
+  script:
+    - if (Test-Path build) { Remove-Item build -r -fo }
+    - npm i
+    - npm run build
