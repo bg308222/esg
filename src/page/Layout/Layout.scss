@@ -22,6 +22,15 @@ body {
     font-weight: bold;
   }
 }
+.noto_14 {
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+
+  color: #6c757d;
+}
 .noto_16 {
   font-family: Noto Sans TC;
   font-style: normal;
@@ -29,6 +38,15 @@ body {
   font-size: 16px;
   line-height: 30px;
   color: #343a40;
+}
+.noto_32 {
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 46px;
+
+  color: #004f74;
 }
 .mont_14 {
   font-family: Montserrat;

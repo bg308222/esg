@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./Cooperation.scss";
 import { fakeCooperations, ICooperation } from "./type";
-import temp from "../../static/image/temp.svg";
 import {
   LearnMoreButton,
   LearnMoreContent,
 } from "../../common/component/LearnMore/LearnMore";
 import { IPopUp } from "../Layout/type";
 import { ContentType } from "../../common/component/LearnMore/type";
+import { BlockTitle } from "../../common/component/BlockTitle/BlockTitle";
 
 export const Cooperation: React.FC<{
   isMobile: boolean;
@@ -16,12 +16,7 @@ export const Cooperation: React.FC<{
   const [cooperations] = useState<ICooperation[]>(fakeCooperations);
   return (
     <div id="cooperation" className="cooperation_container">
-      <div className="animation">
-        <span className="mont_14">合作單位</span>
-      </div>
-      <div className="animation part_title" style={{ marginTop: "10px" }}>
-        <span className=" bai_32">合作單位介紹</span>
-      </div>
+      <BlockTitle title="合作單位介紹" subTitle="合作單位" />
       <div
         className={` cooperation_element_container${isMobile ? "_mobile" : ""}`}
       >
@@ -31,7 +26,7 @@ export const Cooperation: React.FC<{
               className="animation_left cooperation_element"
               key={Math.random()}
             >
-              <img src={temp} alt="temp" />
+              <img src={cooperation.imageUrl} alt="cooperation.imageUrl" />
               <span className="text mont_20">{cooperation.title}</span>
               <span className="text mont_14 black">{cooperation.content}</span>
               <div className="text">

@@ -1,18 +1,19 @@
 import "./Origin.scss";
-import origin_box from "../../static/image/origin_box.svg";
-import temp from "../../static/image/temp.svg";
+import origin_p1 from "../../static/image/origin_p1.svg";
+import origin_p2 from "../../static/image/origin_p2.svg";
 import { LearnMoreButton } from "../../common/component/LearnMore/LearnMore";
+import { BlockTitle } from "../../common/component/BlockTitle/BlockTitle";
 
 export const Origin: React.FC<{
   isMobile: boolean;
 }> = ({ isMobile }) => {
   return (
-    <div id="origin" className="origin_container">
+    <div className="origin_container">
       <div
         className="animation"
         style={{
           backgroundColor: "#FBFBFB",
-          padding: "70px 0",
+          padding: "70px",
         }}
       >
         <div style={{ padding: "0 5%" }}>
@@ -29,18 +30,21 @@ export const Origin: React.FC<{
           </span>
         </div>
       </div>
+      <BlockTitle
+        id="origin"
+        style={{ paddingTop: "70px" }}
+        title="實現正向的力量"
+        subTitle="計畫起源"
+      />
       <div
         className={`animation_left origin_element_container${
           isMobile ? "_mobile" : ""
         }`}
       >
         <div className="origin_element">
-          <img style={{ width: "100%" }} src={temp} alt="temp" />
+          <img style={{ width: "100%" }} src={origin_p1} alt="origin_p1" />
         </div>
         <div className="origin_element">
-          <div>
-            <span className="mont_14">實現正向的力量！</span>
-          </div>
           <div style={{ marginTop: "10px" }}>
             <span className="bai_24">綠色企業永續經營願景工程</span>
           </div>
@@ -69,7 +73,7 @@ export const Origin: React.FC<{
       >
         <div className="origin_element">
           <div style={{ marginTop: "10px" }}>
-            <span className="bai_24">減少溫室氣體的最佳隊友！</span>
+            <span className="bai_24">樹木——減少溫室氣體的最佳隊友！</span>
           </div>
           <div style={{ marginTop: "20px" }}>
             <span className="mont_16">
@@ -77,7 +81,7 @@ export const Origin: React.FC<{
               森林碳匯指的是，「森林植物透過光合作用，把大氣中的二氧化碳吸收並固定在植物與土壤中，進而減少大氣裡二氧化碳濃度」的過程。工廠、汽機車能源燃燒等，是一般大眾較能感受、有連結的碳排放來源，不過其實全球每年有大約20％的碳排放，原因就來自森林的消失。
             </span>
           </div>
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          {/* <div style={{ display: "flex", flexDirection: "row" }}>
             {[
               { title: "樹木砍伐", content: "每年全台約有OO的樹木遭到砍伐。" },
               {
@@ -118,10 +122,10 @@ export const Origin: React.FC<{
                 </div>
               );
             })}
-          </div>
+          </div> */}
         </div>
         <div className="origin_element">
-          <img style={{ width: "100%" }} src={temp} alt="temp" />
+          <img style={{ width: "100%" }} src={origin_p2} alt="origin_p2" />
         </div>
       </div>
     </div>

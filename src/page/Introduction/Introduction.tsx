@@ -1,23 +1,24 @@
 import "./Introduction.scss";
 import introduction_run from "../../static/image/introduction_run.svg";
-import temp from "../../static/image/temp.svg";
+import introduction_p1 from "../../static/image/introduction_p1.svg";
+import introduction_p2 from "../../static/image/introduction_p2.svg";
 import { MyButton } from "../../common/component/MyButton/MyButton";
+import { BlockTitle } from "../../common/component/BlockTitle/BlockTitle";
 export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
   return (
     <div id="introduction" className="introduction_container">
-      <div className="animation">
-        <span className="mont_14">活動介紹</span>
-      </div>
-      <div className="animation part_title" style={{ marginTop: "10px" }}>
-        <span className=" bai_32">改變環境，從起步開始</span>
-      </div>
+      <BlockTitle title="改變環境，從起步開始" subTitle="活動介紹" />
       <div
         className={`animation introduction_element_container${
           isMobile ? "_mobile" : ""
         }`}
       >
         <div className="introduction_element">
-          <img style={{ width: "100%" }} src={temp} alt="temp" />
+          <img
+            style={{ width: "100%" }}
+            src={introduction_p1}
+            alt="introduction_p1"
+          />
         </div>
         <div className="introduction_element">
           <div style={{ marginTop: "10px" }}>
@@ -45,7 +46,7 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
       >
         {[
           { title: "我們的目標", content: "5年種植 10萬棵樹" },
-          { title: "保護台灣物種多樣性", content: "降低碳排量約OOO頓 " },
+          { title: "生態環境教育", content: "恢復台灣生物多樣性" },
         ].map((info, index) => {
           return (
             <div
@@ -122,8 +123,8 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         <img
           className="animation"
           style={{ width: "100%" }}
-          src={temp}
-          alt="temp"
+          src={introduction_p2}
+          alt="introduction_p2"
         />
       </div>
     </div>
