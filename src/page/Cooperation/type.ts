@@ -240,7 +240,7 @@ export const fakeCooperations: ICooperation[] = [
     content:
       "2014年一群校長和企業人士，成立了高雄愛種樹協會，宗旨為「種樹護地球」、「植樹到天邊、綠蔭滿人間」希望透過協會的推廣，在全台種下3000萬棵樹，促使全球綠覆率翻倍並透過教育推廣扎根，以育苗、造林、護林為行動，為地球留住元氣。",
     learnMore: {
-      title: "",
+      title: "高雄市愛種樹協會",
       content: [
         {
           type: ContentType.text,

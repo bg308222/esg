@@ -12,7 +12,7 @@ import {
 } from "../../common/helper/router";
 import { useEffect } from "react";
 
-const handleMyTreeClick = (onMyTreeClick?: () => void) => {
+export const handleMyTreeClick = (onMyTreeClick?: () => void) => {
   onMyTreeClick && onMyTreeClick();
   if (window.confirm("富邦金控為本活動主辦單位，是否開啟樹木種植頁?")) {
     window.open("https://rfg.bravelog.tw/");

@@ -13,6 +13,7 @@ import { MyButton } from "../../common/component/MyButton/MyButton";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getAnimationStyle } from "../../common/helper/animation";
+import { handleMyTreeClick } from "../Layout/Header";
 
 const buttonStyle: () => React.CSSProperties = () => ({
   background: "transparent",
@@ -88,6 +89,9 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
                 transform: "translate(-50%)",
               }),
             }}
+            onClick={() => {
+              handleMyTreeClick();
+            }}
           />
           <img
             style={{
@@ -125,6 +129,9 @@ export const Home: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
             style={{
               ...buttonStyle(),
               ...getAnimationStyle(!isFirstRender, 2, "left"),
+            }}
+            onClick={() => {
+              handleMyTreeClick();
             }}
           />
           <img
