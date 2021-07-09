@@ -19,10 +19,21 @@ export const Cooperation: React.FC<{
       <div
         className={` cooperation_element_container${isMobile ? "_mobile" : ""}`}
       >
-        {cooperations.map((cooperation) => {
+        {cooperations.map((cooperation, index) => {
+          const originElement = document.getElementsByClassName(
+            "cooperation_element"
+          )[index];
+          console.log();
           return (
             <div
-              className="animation_left cooperation_element"
+              className={`animation_left cooperation_element${
+                originElement &&
+                (originElement.getAttribute("class") as string)
+                  .split(" ")
+                  .includes("isShown")
+                  ? " isShown"
+                  : ""
+              }`}
               key={Math.random()}
             >
               <img src={cooperation.imageUrl} alt="cooperation.imageUrl" />

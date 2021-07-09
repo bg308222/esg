@@ -85,7 +85,7 @@ export const LearnMoreContent: React.FC<ILearnMoreContent> = ({
             const learnMoreContainer = document.getElementsByClassName(
               "learn_more_container"
             )[0];
-            learnMoreContainer.scrollTo({ top: 0 });
+            learnMoreContainer.scrollTo({ top: 0, behavior: "smooth" });
           }}
         />
       </div>

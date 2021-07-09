@@ -57,13 +57,10 @@ export const Layout: React.FC = () => {
                 animationElement.offsetTop - scrollTop <
                 window.innerHeight - 150
               ) {
-                if (!originClassList.includes("isShown"))
+                if (!originClassList.includes("isShown")) {
                   originClassList.push("isShown");
-              } /* else {
-                originClassList = originClassList.filter((str) => {
-                  return str !== "isShown";
-                });
-              } back animation */
+                }
+              }
               animationElement.setAttribute("class", originClassList.join(" "));
             });
           }}
