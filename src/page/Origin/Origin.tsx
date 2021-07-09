@@ -13,7 +13,7 @@ export const Origin: React.FC<{
         className="animation"
         style={{
           backgroundColor: "#FBFBFB",
-          padding: "70px",
+          padding: "70px 5%",
         }}
       >
         <div style={{ padding: "0 5%" }}>
@@ -21,7 +21,7 @@ export const Origin: React.FC<{
             森林，
           </span>
           <span className="noto_24" style={{ fontWeight: 400 }}>
-            是讓台完這座島嶼生氣蓬勃的重要命脈。
+            是讓台灣這座島嶼生氣蓬勃的重要命脈。
           </span>
         </div>
         <div className="origin_description">
@@ -46,15 +46,13 @@ export const Origin: React.FC<{
         </div>
         <div className="origin_element">
           <div style={{ marginTop: "10px" }}>
-            <span className="bai_24">綠色企業永續經營願景工程</span>
+            <span className="noto_24">綠色企業永續經營願景工程</span>
           </div>
           <div style={{ marginTop: "20px" }}>
             <span className="mont_16">
               因應企業永續經營所面臨的風險及其所帶來的機會與挑戰，富邦金控自2015年起展開「永續經營（ESG）願景工程」。
-              運用核心職能持續深化對應聯合國永續發展目標（Sustainable
-              Development Goals,
-              SDGs）之行動方案，深化永續經營之各項作為，逐步落實 SDGs 中所對應的
-              16
+              運用核心職能持續深化對應聯合國永續發展目標之行動方案，深化永續經營之各項作為，逐步落實
+              SDGs 中所對應的 16
               個目標，促進永續且包容的經濟成長、社會發展與環境保護，以提升企業競爭力，發揮金融影響力。
             </span>
           </div>
@@ -73,7 +71,7 @@ export const Origin: React.FC<{
       >
         <div className="origin_element">
           <div style={{ marginTop: "10px" }}>
-            <span className="bai_24">樹木——減少溫室氣體的最佳隊友！</span>
+            <span className="noto_24">樹木——減少溫室氣體的最佳隊友！</span>
           </div>
           <div style={{ marginTop: "20px" }}>
             <span className="mont_16">

@@ -43,7 +43,7 @@ export const LearnMoreContent: React.FC<ILearnMoreContent> = ({
         <img className="cancel" src={cancel_block} alt="cancel_block" />
       </div>
       <div className={`body${isMobile ? " mobile" : ""}`}>
-        <div className="title">{title}</div>
+        {!!title && <div className="title">{title}</div>}
         <div className="content_container">
           {content.map((v) => {
             switch (v.type) {

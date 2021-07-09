@@ -59,11 +59,11 @@ export const Layout: React.FC = () => {
               ) {
                 if (!originClassList.includes("isShown"))
                   originClassList.push("isShown");
-              } else {
+              } /* else {
                 originClassList = originClassList.filter((str) => {
                   return str !== "isShown";
                 });
-              }
+              } back animation */
               animationElement.setAttribute("class", originClassList.join(" "));
             });
           }}

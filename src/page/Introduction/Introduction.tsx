@@ -1,9 +1,10 @@
 import "./Introduction.scss";
 import introduction_run from "../../static/image/introduction_run.svg";
 import introduction_p1 from "../../static/image/introduction_p1.svg";
-import introduction_p2 from "../../static/image/introduction_p2.svg";
+import introduction_p2 from "../../static/image/introduction_p2.png";
 import introduction_p3 from "../../static/image/introduction_p3.png";
-import introduction_p4 from "../../static/image/introduction_p4.png";
+import introduction_p4 from "../../static/image/introduction_p4.svg";
+import introduction_p5 from "../../static/image/introduction_p5.svg";
 // import introduction_p4 from "../../static/image/introduction_p4.svg";
 import { MyButton } from "../../common/component/MyButton/MyButton";
 import { BlockTitle } from "../../common/component/BlockTitle/BlockTitle";
@@ -25,7 +26,7 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         </div>
         <div className="introduction_element">
           <div style={{ marginTop: "10px" }}>
-            <span className="bai_24">用雙腳，感受大地的好</span>
+            <span className="noto_24">用雙腳，感受大地的好</span>
           </div>
           <div style={{ marginTop: "20px" }}>
             <span className="mont_16">
@@ -51,12 +52,12 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           {
             title: "我們的目標",
             content: "5年種植 10萬棵樹",
-            image: introduction_p3,
+            image: introduction_p2,
           },
           {
             title: "生態環境教育",
             content: "恢復台灣生物多樣性",
-            image: introduction_p4,
+            image: introduction_p3,
           },
         ].map((info, index) => {
           return (
@@ -152,8 +153,8 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         <img
           className="animation"
           style={{ width: "100%" }}
-          src={introduction_p2}
-          alt="introduction_p2"
+          src={isMobile ? introduction_p5 : introduction_p4}
+          alt={isMobile ? introduction_p5 : introduction_p4}
         />
       </div>
     </div>

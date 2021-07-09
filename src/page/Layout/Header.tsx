@@ -12,6 +12,13 @@ import {
 } from "../../common/helper/router";
 import { useEffect } from "react";
 
+const handleMyTreeClick = (onMyTreeClick?: () => void) => {
+  onMyTreeClick && onMyTreeClick();
+  if (window.confirm("富邦金控為本活動主辦單位，是否開啟樹木種植頁?")) {
+    window.open("https://rfg.bravelog.tw/");
+  }
+};
+
 export const Header: React.FC<{
   isMobile: boolean;
   isPopUpShown: boolean;
@@ -70,7 +77,9 @@ export const Header: React.FC<{
             className="navbar_logo"
             src={my_tree}
             alt={"my_tree"}
-            onClick={() => {}}
+            onClick={() => {
+              handleMyTreeClick(onMyTreeClick);
+            }}
           />
           <div className="navbar_container_mobile">
             <div
@@ -153,7 +162,7 @@ export const Header: React.FC<{
           <MyButton
             text="我的樹木"
             onClick={() => {
-              onMyTreeClick && onMyTreeClick();
+              handleMyTreeClick(onMyTreeClick);
             }}
             style={{ width: "110px" }}
           />
