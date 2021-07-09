@@ -249,11 +249,8 @@ export const fakeCooperations: ICooperation[] = [
         {
           type: ContentType.image,
           url: cooperationImage.info3.p1,
-          // subTitle: "計畫復育的之一花蓮七星潭海岸保安林",
-        },
-        {
-          type: ContentType.text,
-          text: "愛種樹協會目前主要共有「種樹撫育」、「教育推廣」、「育苗送苗」、「環境營造」四大綠色行動。",
+          subTitle:
+            "愛種樹協會目前主要共有「種樹撫育」、「教育推廣」、「育苗送苗」、「環境營造」四大綠色行動。",
         },
         {
           type: ContentType.text,

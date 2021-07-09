@@ -39,7 +39,11 @@ export const Cooperation: React.FC<{
               <img
                 src={cooperation.imageUrl}
                 alt="cooperation.imageUrl"
-                style={{ width: "100%" }}
+                style={{
+                  width: "100%",
+                  borderTopLeftRadius: "5px",
+                  borderTopRightRadius: "5px",
+                }}
               />
               <span className="text mont_20">{cooperation.title}</span>
               <span className="text mont_14 black">{cooperation.content}</span>

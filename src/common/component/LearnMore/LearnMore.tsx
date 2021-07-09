@@ -3,6 +3,7 @@ import scroll_to_top from "../../../static/image/scroll_to_top.svg";
 import arrow_right from "../../../static/image/arrow_right.svg";
 import { ContentType, ILearnMoreButton, ILearnMoreContent } from "./type";
 import "./LearnMore.scss";
+import { useEffect } from "react";
 
 export const LearnMoreButton: React.FC<ILearnMoreButton> = ({
   onClick,
@@ -32,8 +33,27 @@ export const LearnMoreContent: React.FC<ILearnMoreContent> = ({
   onCancel,
   isMobile,
 }) => {
+  useEffect(() => {
+    const element = document.getElementsByClassName("learn_more_container")[0];
+    const getScrollTop = () => {
+      const element = document.getElementsByClassName(
+        "learn_more_container"
+      )[0];
+      return element.scrollTop;
+    };
+    const scrollToTopElement = document.querySelector(
+      ".learn_more_container .scroll_to_top"
+    ) as HTMLElement;
+    element.addEventListener("scroll", () => {
+      if (getScrollTop() === 0) {
+        scrollToTopElement.style.opacity = "0";
+      } else {
+        scrollToTopElement.style.opacity = "1";
+      }
+    });
+  }, []);
   return (
-    <div className="learn_more_container" id="top">
+    <div className="learn_more_container">
       <div
         className="header"
         onClick={() => {
@@ -81,11 +101,22 @@ export const LearnMoreContent: React.FC<ILearnMoreContent> = ({
         <img
           src={scroll_to_top}
           alt="scroll_to_top"
-          onClick={() => {
+          onClick={async () => {
             const learnMoreContainer = document.getElementsByClassName(
               "learn_more_container"
             )[0];
-            learnMoreContainer.scrollTo({ top: 0, behavior: "smooth" });
+            while (learnMoreContainer.scrollTop > 0) {
+              console.log(learnMoreContainer.scrollTop);
+              await new Promise((res) => {
+                setTimeout(() => {
+                  Math.max(learnMoreContainer.scrollTop -= Math.pow(
+                    learnMoreContainer.scrollTop,
+                    0.6
+                  ), 10)
+                  res(1);
+                }, 10);
+              });
+            }
           }}
         />
       </div>

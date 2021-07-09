@@ -38,12 +38,18 @@ export const Header: React.FC<{
 
   useEffect(() => {
     const main = document.getElementsByClassName("main")[0];
+    const mobileDisableScroll = (e: Event) => {
+      e.preventDefault();
+    };
     main.addEventListener("scroll", ({ currentTarget }) => {
       if (!isScrolling()) {
         onScroll && onScroll((currentTarget as HTMLDivElement).scrollTop);
         setCurrentNavbar(
           getCurrentRoute((currentTarget as HTMLDivElement).scrollTop)
         );
+        main.removeEventListener("touchmove", mobileDisableScroll);
+      } else {
+        main.addEventListener("touchmove", mobileDisableScroll);
       }
     });
   }, [onScroll]);

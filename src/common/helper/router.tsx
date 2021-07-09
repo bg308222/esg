@@ -24,7 +24,7 @@ const scrollTo = async (target: number, id: string) => {
         setTimeout(() => {
           element.scrollTop -= Math.max(
             Math.pow(element.scrollTop - target, 0.6),
-            5
+            10
           );
           res(1);
         }, 10);
@@ -46,7 +46,7 @@ const scrollTo = async (target: number, id: string) => {
         setTimeout(() => {
           element.scrollTop += Math.max(
             Math.pow(target - element.scrollTop, 0.6),
-            5
+            10
           );
           res(1);
         }, 10);
