@@ -2,6 +2,9 @@ import "./Introduction.scss";
 import introduction_run from "../../static/image/introduction_run.svg";
 import introduction_p1 from "../../static/image/introduction_p1.svg";
 import introduction_p2 from "../../static/image/introduction_p2.svg";
+import introduction_p3 from "../../static/image/introduction_p3.png";
+import introduction_p4 from "../../static/image/introduction_p4.png";
+// import introduction_p4 from "../../static/image/introduction_p4.svg";
 import { MyButton } from "../../common/component/MyButton/MyButton";
 import { BlockTitle } from "../../common/component/BlockTitle/BlockTitle";
 export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
@@ -45,29 +48,50 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         }}
       >
         {[
-          { title: "我們的目標", content: "5年種植 10萬棵樹" },
-          { title: "生態環境教育", content: "恢復台灣生物多樣性" },
+          {
+            title: "我們的目標",
+            content: "5年種植 10萬棵樹",
+            image: introduction_p3,
+          },
+          {
+            title: "生態環境教育",
+            content: "恢復台灣生物多樣性",
+            image: introduction_p4,
+          },
         ].map((info, index) => {
           return (
             <div
               style={{
+                position: "relative",
                 flex: 1,
                 marginTop: isMobile ? "0px" : "20px",
                 height: "200px",
-                background: index ? "#0093C1" : "#00A59B",
+                // background: index ? "#0093C1" : "#00A59B",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                padding: "40px 0px",
-                paddingLeft: isMobile ? "" : "10%",
+                // padding: "40px 0px",
+                // paddingLeft: isMobile ? "" : "10%",
               }}
               key={info.title}
             >
+              <img
+                src={info.image}
+                alt={info.image}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  position: "absolute",
+                  zIndex: -1,
+                }}
+              />
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
                   alignItems: isMobile ? "center" : "flex-start",
+                  margin: "40px 0px",
+                  paddingLeft: isMobile ? "" : "15%",
                 }}
               >
                 <span style={{ marginBottom: "10px" }} className="mont_24">

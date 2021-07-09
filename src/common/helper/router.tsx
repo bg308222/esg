@@ -14,22 +14,22 @@ export const isScrolling = () => {
   return scrollQueue.length !== 0;
 };
 
-const scrollTo = async (top: number, id: string) => {
+const scrollTo = async (target: number, id: string, targetHeight: number) => {
   const element = document.getElementsByClassName("main")[0];
-  if (element.scrollTop > top) {
-    // scroll to top
-    while (element.scrollTop > top) {
-      // console.log(element.scrollTop, top, "1", scrollQueue);
+  if (element.scrollTop > target) {
+    // scroll to target
+    while (element.scrollTop > target) {
+      // console.log(element.scrollTop, target, "1", scrollQueue);
       await new Promise((res) => {
         setTimeout(() => {
           element.scrollTop -= Math.max(
-            Math.pow(element.scrollTop - top, 0.6),
+            Math.pow(element.scrollTop - target, 0.6),
             5
           );
           res(1);
         }, 10);
       });
-      if (Math.abs(element.scrollTop - top) < 1) break;
+      if (Math.abs(element.scrollTop - target) < 1) break;
       if (scrollQueue.length !== 1) {
         if (scrollQueue.indexOf(id) !== scrollQueue.length - 1) {
           return;
@@ -37,21 +37,24 @@ const scrollTo = async (top: number, id: string) => {
       }
     }
     scrollQueue = [];
-    element.scrollTop = top;
+    element.scrollTop = target;
   } else {
     // scroll to down
-    while (element.scrollTop < top) {
-      // console.log(element.scrollTop, top, "2", scrollQueue);
+    while (element.scrollTop < target) {
+      // console.log(element.scrollTop, target, targetHeight, scrollQueue);
       await new Promise((res) => {
         setTimeout(() => {
           element.scrollTop += Math.max(
-            Math.pow(top - element.scrollTop, 0.6),
+            Math.pow(target - element.scrollTop, 0.6),
             5
           );
           res(1);
         }, 10);
       });
-      if (Math.abs(element.scrollTop - top) < 1) break;
+      if (Math.abs(element.scrollTop - target) < 1) break;
+      if (element.scrollTop + targetHeight > target) {
+        break;
+      }
       if (scrollQueue.length !== 1) {
         if (scrollQueue.indexOf(id) !== scrollQueue.length - 1) {
           return;
@@ -59,7 +62,7 @@ const scrollTo = async (top: number, id: string) => {
       }
     }
     scrollQueue = [];
-    element.scrollTop = top;
+    element.scrollTop = target;
   }
 };
 
@@ -67,13 +70,15 @@ export const switchRouter = async (target: Router) => {
   const id = Math.random().toString();
   scrollQueue.push(id);
   if (target === Router.header || target === Router.home) {
-    await scrollTo(0, id);
+    await scrollTo(0, id, 0);
   } else {
-    const element = document.getElementById(target);
+    const element = document.getElementById(target) as HTMLElement;
+    const { height } = element.getBoundingClientRect();
     if (element) {
       await scrollTo(
         element.offsetTop - 40 - (checkIsWindowMobile() ? 50 : 0),
-        id
+        id,
+        target === Router.cooperation ? height : 0
       );
     }
   }
