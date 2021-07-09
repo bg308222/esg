@@ -97,7 +97,7 @@ export const LearnMoreContent: React.FC<ILearnMoreContent> = ({
         </div>
       </div>
       <div className="footer" />
-      <div className="scroll_to_top">
+      <div className="scroll_to_top" style={{ opacity: "0" }}>
         <img
           src={scroll_to_top}
           alt="scroll_to_top"
@@ -109,10 +109,13 @@ export const LearnMoreContent: React.FC<ILearnMoreContent> = ({
               console.log(learnMoreContainer.scrollTop);
               await new Promise((res) => {
                 setTimeout(() => {
-                  Math.max(learnMoreContainer.scrollTop -= Math.pow(
-                    learnMoreContainer.scrollTop,
-                    0.6
-                  ), 10)
+                  Math.max(
+                    (learnMoreContainer.scrollTop -= Math.pow(
+                      learnMoreContainer.scrollTop,
+                      0.6
+                    )),
+                    10
+                  );
                   res(1);
                 }, 10);
               });
