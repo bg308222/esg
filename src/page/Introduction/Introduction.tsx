@@ -142,6 +142,11 @@ export const Introduction: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           width: "150px",
           margin: "30px auto",
         }}
+        onClick={() => {
+          if (window.confirm("富邦金控為本活動主辦單位，是否開啟樹木種植頁?")) {
+            window.open("https://rfg.bravelog.tw/");
+          }
+        }}
       />
       <div>
         <img
