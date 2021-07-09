@@ -14,12 +14,12 @@ export const isScrolling = () => {
   return scrollQueue.length !== 0;
 };
 
-const scrollTo = async (target: number, id: string, targetHeight: number) => {
+const scrollTo = async (target: number, id: string) => {
   const element = document.getElementsByClassName("main")[0];
   if (element.scrollTop > target) {
     // scroll to target
     while (element.scrollTop > target) {
-      // console.log(element.scrollTop, target, "1", scrollQueue);
+      // console.log(element.scrollTop, element.scrollHeight, target, window.innerHeight);
       await new Promise((res) => {
         setTimeout(() => {
           element.scrollTop -= Math.max(
@@ -41,7 +41,7 @@ const scrollTo = async (target: number, id: string, targetHeight: number) => {
   } else {
     // scroll to down
     while (element.scrollTop < target) {
-      // console.log(element.scrollTop, target, targetHeight, scrollQueue);
+      // console.log(element.scrollTop, element.scrollHeight, target, window.innerHeight);
       await new Promise((res) => {
         setTimeout(() => {
           element.scrollTop += Math.max(
@@ -52,7 +52,7 @@ const scrollTo = async (target: number, id: string, targetHeight: number) => {
         }, 10);
       });
       if (Math.abs(element.scrollTop - target) < 1) break;
-      if (element.scrollTop + targetHeight > target) {
+      if (element.scrollTop + window.innerHeight >= element.scrollHeight) {
         break;
       }
       if (scrollQueue.length !== 1) {
@@ -66,19 +66,17 @@ const scrollTo = async (target: number, id: string, targetHeight: number) => {
   }
 };
 
-export const switchRouter = async (target: Router) => {
+export const switchRouter = async (router: Router) => {
   const id = Math.random().toString();
   scrollQueue.push(id);
-  if (target === Router.header || target === Router.home) {
-    await scrollTo(0, id, 0);
+  if (router === Router.header || router === Router.home) {
+    await scrollTo(0, id);
   } else {
-    const element = document.getElementById(target) as HTMLElement;
-    const { height } = element.getBoundingClientRect();
+    const element = document.getElementById(router) as HTMLElement;
     if (element) {
       await scrollTo(
         element.offsetTop - 40 - (checkIsWindowMobile() ? 50 : 0),
-        id,
-        target === Router.cooperation ? height : 0
+        id
       );
     }
   }
