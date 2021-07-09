@@ -36,7 +36,11 @@ export const Cooperation: React.FC<{
               }`}
               key={Math.random()}
             >
-              <img src={cooperation.imageUrl} alt="cooperation.imageUrl" />
+              <img
+                src={cooperation.imageUrl}
+                alt="cooperation.imageUrl"
+                style={{ width: "100%" }}
+              />
               <span className="text mont_20">{cooperation.title}</span>
               <span className="text mont_14 black">{cooperation.content}</span>
               <div className="text">
